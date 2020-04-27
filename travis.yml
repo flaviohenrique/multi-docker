@@ -19,3 +19,4 @@ after_success:
     - docker push flaviohenrique/multi-nginx
     - docker push flaviohenrique/multi-server
     - docker push flaviohenrique/multi-worker
+    
