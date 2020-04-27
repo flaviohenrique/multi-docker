@@ -3,20 +3,20 @@ services:
     - docker
 
 before_install:
-    - docker build -t flaviohenrique/react-test -f ./client/Dockerfile.dev ./client
+    - docker build -t flaviohenrique85/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-    - docker run -e CI=true flaviohenrique/react-test npm test
+    - docker run -e CI=true flaviohenrique85/react-test npm test
 
 after_success:
-    - docker build -t flaviohenrique/multi-client ./client
-    - docker build -t flaviohenrique/multi-nginx ./nginx
-    - docker build -t flaviohenrique/multi-server ./server
-    - docker build -t flaviohenrique/multi-worker .worker
+    - docker build -t flaviohenrique85/multi-client ./client
+    - docker build -t flaviohenrique85/multi-nginx ./nginx
+    - docker build -t flaviohenrique85/multi-server ./server
+    - docker build -t flaviohenrique85/multi-worker .worker
 
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-    - docker push flaviohenrique/multi-client
-    - docker push flaviohenrique/multi-nginx
-    - docker push flaviohenrique/multi-server
-    - docker push flaviohenrique/multi-worker
+    - docker push flaviohenrique85/multi-client
+    - docker push flaviohenrique85/multi-nginx
+    - docker push flaviohenrique85/multi-server
+    - docker push flaviohenrique85/multi-worker
     
